@@ -16,3 +16,35 @@ def character_count(book):
         else:
             characters[c] = 1
     return characters
+
+def sort_on(items):
+    return items["num"]
+
+def character_sorting(character_count_dict):
+    sorted_list = []
+    for key, value in character_count_dict.items():
+        if key.isalpha() == False:
+            pass
+        else:
+            sorted_list.append({"char": key, "num": value})
+    
+    sorted_list.sort(reverse=True, key=sort_on)
+    return sorted_list
+
+def book_report():
+    book_location = "books/frankenstein.txt"
+    frankenstein = get_book_text(book_location)
+    word_count = count_words(frankenstein)
+    characters = character_count(frankenstein)
+    sorted_characters = character_sorting(characters)
+
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {book_location}...")
+    print("----------- Word Count ----------")
+    print(f"Found {word_count} total words")
+    print("--------- Character Count -------")
+    for char_dict in sorted_characters:
+        print(f"{char_dict["char"]}: {char_dict["num"]}")
+    print("============= END ===============")
+
+    
