@@ -1,3 +1,5 @@
+import sys
+
 def get_book_text(path_to_file):
     with open(path_to_file) as f:
         book_contents = f.read()
@@ -32,7 +34,7 @@ def character_sorting(character_count_dict):
     return sorted_list
 
 def book_report():
-    book_location = "books/frankenstein.txt"
+    book_location = sys.argv[1]
     frankenstein = get_book_text(book_location)
     word_count = count_words(frankenstein)
     characters = character_count(frankenstein)
