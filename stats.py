@@ -34,7 +34,6 @@ def word_quantity(book):
         word = ''.join(char for char in word if char.isalpha())  # remove punctuation
         if word:  # skip empty strings
             clean_words.append(word.lower())  # optional lowercase
-    print(clean_words)
 
     for clean_word in clean_words:
         if clean_word not in word_dict:
